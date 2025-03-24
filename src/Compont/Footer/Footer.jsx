@@ -5,7 +5,7 @@ export default function Footer() {
   return (
     
 <>
-<div className='bg-emerald-500 w-full mt-20' >
+<div className='bg-emerald-500 w-full  mt-20 ' >
 <footer className="bg-emerald-500 rounded-lg shadow-sm dark:'bg-emerald-500 m-auto w-[90%]">
   <div className="w-full max-w-screen-xl mx-auto p-10 md:py-8">
     <div className="sm:flex sm:items-center sm:justify-between">

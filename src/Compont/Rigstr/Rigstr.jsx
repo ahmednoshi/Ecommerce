@@ -117,7 +117,7 @@ export default function Rigstr() {
   return (
    
 
-<div className='p-5'>
+<div className='p-5 mb-[220px]'>
 
 
     {isCreate ? <div class="p-4 mb-4 text-sm text-green-800 rounded-lg bg-red-50 dark:bg-green-800 dark:text-white" role="alert">

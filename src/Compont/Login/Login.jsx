@@ -120,7 +120,7 @@ export default function Login() {
   return (
    
 
-<div className='p-5'>
+<div className='p-5 mb-[400px]'>
 
 
    <div  className='w-full'>
@@ -133,7 +133,7 @@ export default function Login() {
     </div> : ''}
    </div>
 
-    <h1 className='text-center w-[38%] m-auto flex justify-start'>Register Now:</h1>
+    <h1 className='text-center w-[38%] m-auto flex justify-start'>Login Now:</h1>
 
 
  <form onSubmit={formik.handleSubmit} className="max-w-md mx-auto ">
