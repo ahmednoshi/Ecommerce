@@ -8,6 +8,7 @@ import { useState } from 'react';
 import { useNavigate } from "react-router";
 import { AuthConPro } from '../../Context/AuthContext';
 import { ColorRing } from 'react-loader-spinner';
+import { SyncLoader } from 'react-spinners';
 
 
 
@@ -174,15 +175,7 @@ export default function Login() {
 
 
   <button type="submit" className="text-white bg-emerald-500  hover:bg-emerald-800  focus:ring-emerald-900 focus:outline-none  font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center ">
-      { !isClicked ? 'Submit' : <ColorRing
-        visible={true}
-        height="20"
-        width="30"
-        ariaLabel="color-ring-loading"
-        wrapperStyle={{}}
-        wrapperClass="color-ring-wrapper"
-        colors={['#fff', '#fff', '#fff', '#fff', '#fff']}
-        /> }
+      { !isClicked ? 'Submit' :<SyncLoader /> }
 
   </button>
 </form>

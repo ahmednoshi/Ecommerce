@@ -7,6 +7,7 @@ import axios, {isCancel, AxiosError} from 'axios';
 import { useState } from 'react';
 import { useNavigate } from "react-router";
 import { ColorRing } from 'react-loader-spinner';
+import { SyncLoader } from 'react-spinners';
 
 
 
@@ -198,15 +199,7 @@ export default function Rigstr() {
 
   </div>
   <button type="submit" className="text-white bg-emerald-500  hover:bg-emerald-800  focus:ring-4 focus:outline-none focus:ring-emerald-900 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:'bg-emerald-500  dark:hover:'bg-emerald-8000  ">
-  { !isClicked ? 'Submit' : <ColorRing
-  visible={true}
-  height="20"
-  width="30"
-  ariaLabel="color-ring-loading"
-  wrapperStyle={{}}
-  wrapperClass="color-ring-wrapper"
-  colors={['#fff', '#fff', '#fff', '#fff', '#fff']}
-  /> }
+  { !isClicked ? 'Submit' : <SyncLoader /> }
 
 
 
