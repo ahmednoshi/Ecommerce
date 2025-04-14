@@ -7,6 +7,7 @@ import axios, {isCancel, AxiosError} from 'axios';
 import { useState } from 'react';
 import { useNavigate } from "react-router";
 import { AuthConPro } from '../../Context/AuthContext';
+import { ColorRing } from 'react-loader-spinner';
 
 
 
@@ -17,6 +18,7 @@ export default function Login() {
   const { setUserToken } = useContext(AuthConPro)
   const [ErrorMassage, setErrorMassage] = useState(null)
   const [isCreate, setisCreate] = useState(false)
+  const [isClicked, setisClicked] = useState(false)
   
   
   
@@ -35,7 +37,7 @@ export default function Login() {
     //   console.log('error',error.response.data.message);
 
     // }
-
+    setisClicked(true);
   axios.post('https://ecommerce.routemisr.com/api/v1/auth/signin',values)
   // console.log(values)
    .then( function( x ){
@@ -46,6 +48,7 @@ export default function Login() {
     setUserToken(x.data.token);
 
     setisCreate( true );
+    setisClicked(false);
 
    
     setTimeout(() => {
@@ -55,6 +58,7 @@ export default function Login() {
    } ) .catch( function( x ){
     // console.log('8lt',x)
     setErrorMassage( x.response.data.message );
+    setisClicked(false);
 
     setTimeout(() => {
       setErrorMassage(null)
@@ -169,7 +173,18 @@ export default function Login() {
     </div>
 
 
-  <button type="submit" className="text-white bg-emerald-500  hover:bg-emerald-800  focus:ring-emerald-900 focus:outline-none  font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center ">Submit</button>
+  <button type="submit" className="text-white bg-emerald-500  hover:bg-emerald-800  focus:ring-emerald-900 focus:outline-none  font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center ">
+      { !isClicked ? 'Submit' : <ColorRing
+        visible={true}
+        height="20"
+        width="30"
+        ariaLabel="color-ring-loading"
+        wrapperStyle={{}}
+        wrapperClass="color-ring-wrapper"
+        colors={['#fff', '#fff', '#fff', '#fff', '#fff']}
+        /> }
+
+  </button>
 </form>
 
 

@@ -6,6 +6,7 @@ import axios, {isCancel, AxiosError} from 'axios';
 // import axios from 'axios';
 import { useState } from 'react';
 import { useNavigate } from "react-router";
+import { ColorRing } from 'react-loader-spinner';
 
 
 
@@ -15,6 +16,7 @@ export default function Rigstr() {
   const nava = useNavigate();
   const [ErrorMassage, setErrorMassage] = useState(null)
   const [isCreate, setisCreate] = useState(false)
+  const [isClicked, setisClicked] = useState(false)
   
   
   
@@ -37,10 +39,12 @@ export default function Rigstr() {
 
     // }
 
+    setisClicked(true);
   axios.post('https://ecommerce.routemisr.com/api/v1/auth/signup',values)
   // console.log(values)
    .then( function( x ){
     setisCreate( true );
+    setisClicked(false);
    
     setTimeout(() => {
       nava('/Login')
@@ -49,6 +53,7 @@ export default function Rigstr() {
    } ) .catch( function( x ){
     // console.log('8lt',x)
     setErrorMassage( x.response.data.message );
+    setisClicked(false);
 
     setTimeout(() => {
       setErrorMassage(null)
@@ -192,7 +197,21 @@ export default function Rigstr() {
    </div> : ''}
 
   </div>
-  <button type="submit" className="text-white bg-emerald-500  hover:bg-emerald-800  focus:ring-4 focus:outline-none focus:ring-emerald-900 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:'bg-emerald-500  dark:hover:'bg-emerald-8000  ">Submit</button>
+  <button type="submit" className="text-white bg-emerald-500  hover:bg-emerald-800  focus:ring-4 focus:outline-none focus:ring-emerald-900 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:'bg-emerald-500  dark:hover:'bg-emerald-8000  ">
+  { !isClicked ? 'Submit' : <ColorRing
+  visible={true}
+  height="20"
+  width="30"
+  ariaLabel="color-ring-loading"
+  wrapperStyle={{}}
+  wrapperClass="color-ring-wrapper"
+  colors={['#fff', '#fff', '#fff', '#fff', '#fff']}
+  /> }
+
+
+
+  </button>
+  
 </form>
 
 
