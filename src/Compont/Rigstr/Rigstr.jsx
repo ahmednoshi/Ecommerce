@@ -6,7 +6,6 @@ import axios, {isCancel, AxiosError} from 'axios';
 // import axios from 'axios';
 import { useState } from 'react';
 import { useNavigate } from "react-router";
-import { ColorRing } from 'react-loader-spinner';
 import { SyncLoader } from 'react-spinners';
 
 

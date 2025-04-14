@@ -7,7 +7,6 @@ import axios, {isCancel, AxiosError} from 'axios';
 import { useState } from 'react';
 import { useNavigate } from "react-router";
 import { AuthConPro } from '../../Context/AuthContext';
-import { ColorRing } from 'react-loader-spinner';
 import { SyncLoader } from 'react-spinners';
 
 
